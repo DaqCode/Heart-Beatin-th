@@ -1,0 +1,157 @@
+[gd_scene load_steps=20 format=3 uid="uid://kcfpbh7wwuny"]
+
+[ext_resource type="Script" path="res://scripts/main_character.gd" id="1_va6t0"]
+[ext_resource type="Texture2D" uid="uid://bxtdro06gd72d" path="res://resource images/red_resources.png" id="2_uk5hn"]
+[ext_resource type="AudioStream" uid="uid://bmf8crjn7un7f" path="res://sounds/jump.wav" id="3_2hb48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naa0c"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(128, 76, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpe7c"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(160, 76, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q23k"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(192, 76, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv416"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(224, 76, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4uan"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(0, 12, 32, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbwio"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(32, 12, 32, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k303"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(64, 12, 32, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o7rl"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(96, 12, 32, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqtw3"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(0, 76, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy77i"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(32, 76, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqg8o"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(64, 76, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kk3g"]
+atlas = ExtResource("2_uk5hn")
+region = Rect2(96, 76, 32, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0yw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naa0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpe7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q23k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv416")
+}],
+"loop": true,
+"name": &"death",
+"speed": 0.75
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4uan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbwio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k303")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o7rl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqtw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy77i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqg8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kk3g")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5xao"]
+size = Vector2(5.5, 6)
+
+[sub_resource type="Animation" id="Animation_th3qm"]
+resource_name = "jump"
+length = 0.21
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wb0n2"]
+_data = {
+"jump": SubResource("Animation_th3qm")
+}
+
+[node name="main_character" type="CharacterBody2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_va6t0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+scale = Vector2(0.425828, 0.422714)
+sprite_frames = SubResource("SpriteFrames_u0yw4")
+animation = &"running"
+autoplay = "default"
+frame_progress = 0.803798
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.17, -2.01)
+shape = SubResource("RectangleShape2D_y5xao")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2hb48")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AudioStreamPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_wb0n2")
+}

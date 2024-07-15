@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bativk8bgmre8"]
+
+[ext_resource type="Texture2D" uid="uid://e8isolh83u5c" path="res://resource images/spikes.png" id="1_gwobb"]
+[ext_resource type="Script" path="res://scripts/spikes.gd" id="1_trrej"]
+
+[node name="spikes" type="Area2D"]
+script = ExtResource("1_trrej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, 6)
+texture = ExtResource("1_gwobb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(6, 6)
+scale = Vector2(0.600001, 0.598041)
+build_mode = 1
+polygon = PackedVector2Array(-9.99998, 6.6885, 0, -10.0328, 9.99998, 8.36063, 9.99998, 10.0328, -9.99998, 10.0328)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

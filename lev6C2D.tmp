@@ -1,0 +1,110 @@
+[gd_scene load_steps=3 format=3 uid="uid://doxhpf4ev3qws"]
+
+[ext_resource type="Script" path="res://level_select.gd" id="1_jm7wh"]
+[ext_resource type="Texture2D" uid="uid://bxuti1jhje13w" path="res://resource images/menubackground.png" id="1_wq0py"]
+
+[node name="levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jm7wh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wq0py")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 251
+text = "Select a level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="levelSelection" type="GridContainer" parent="."]
+layout_mode = 2
+offset_left = 285.0
+offset_top = 364.0
+offset_right = 1497.0
+offset_bottom = 968.0
+columns = 4
+
+[node name="1" type="Button" parent="levelSelection"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17266, 3.85046e-07, 0.966075, 1)
+theme_override_font_sizes/font_size = 201
+text = "1"
+icon_alignment = 1
+
+[node name="2" type="Button" parent="levelSelection"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17266, 3.85046e-07, 0.966075, 1)
+theme_override_font_sizes/font_size = 201
+text = "2
+"
+icon_alignment = 1
+
+[node name="3" type="Button" parent="levelSelection"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17266, 3.85046e-07, 0.966075, 1)
+theme_override_font_sizes/font_size = 201
+text = "3"
+icon_alignment = 1
+
+[node name="4" type="Button" parent="levelSelection"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17266, 3.85046e-07, 0.966075, 1)
+theme_override_font_sizes/font_size = 201
+text = "4"
+icon_alignment = 1
+
+[node name="5" type="Button" parent="levelSelection"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17266, 3.85046e-07, 0.966075, 1)
+theme_override_font_sizes/font_size = 201
+text = "5"
+icon_alignment = 1
+
+[node name="6" type="Button" parent="levelSelection"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17266, 3.85046e-07, 0.966075, 1)
+theme_override_font_sizes/font_size = 201
+text = "6"
+icon_alignment = 1
+
+[node name="7" type="Button" parent="levelSelection"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17266, 3.85046e-07, 0.966075, 1)
+theme_override_font_sizes/font_size = 201
+text = "7"
+icon_alignment = 1
+
+[node name="8" type="Button" parent="levelSelection"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17266, 3.85046e-07, 0.966075, 1)
+theme_override_font_sizes/font_size = 201
+text = "8"
+icon_alignment = 1

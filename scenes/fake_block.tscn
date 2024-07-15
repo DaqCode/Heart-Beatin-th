@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b64kawvf1tnw5"]
+
+[ext_resource type="Texture2D" uid="uid://c06gkcyi7cido" path="res://resource images/pixil-frame-0 (6).png" id="1_2aqtw"]
+
+[node name="fakeBlock" type="Node2D"]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2aqtw")
